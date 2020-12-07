@@ -1,0 +1,20 @@
+<div class="col-md-3" *ngIf="local.type==type || type==null">
+  <div class="card" style="width: 17rem;">
+
+ <article class="tm-gallery-item" >
+  <figure>
+    <img *ngIf="local.type=='Appartement'" src="../../assets/appartement.jpg" alt="Image" class="card-img-top"  style="margin-right: 0px;margin-left: 0px; width: 270px;height: 150px;"/>
+    <img *ngIf="local.type=='Maison'" src="../../assets/maison.jpg" alt="Image" class="card-img-top"  style="margin-right: 0px;margin-left: 0px;" />
+    <img *ngIf="local.type=='Local commercial'" src="../../assets/local-commercial.jpg" alt="Image" class="card-img-top"   style="margin-right: 0px;margin-left: 0px;"/>
+
+    <figcaption>
+      <h4 class="card-title"  style="margin-left: 50px;">{{local.adresse}}</h4>
+      <p class="tm-gallery-description" style="margin-right: 10px;margin-left: 10px;">{{local.description}}</p>
+      <p class="tm-gallery-price" style="margin-right: 10px;margin-left: 10px;">{{local.prix}} DT/mois</p>
+      <a class="btn btn-danger" style="margin-right: 10px;margin-left: 50px;" [routerLink]="['detail',local.id]">Détail</a>
+      <button class="btn btn-warning">Rendez-vous</button>
+    </figcaption>
+  </figure>
+</article>
+</div>
+</div>

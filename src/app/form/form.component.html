@@ -1,0 +1,88 @@
+<h1>Ajouter un local</h1>
+<form #f="ngForm">
+  <div class="form-group">
+    <label for="typee">Type</label>
+    <select  name="typee" class="form-control" [(ngModel)]="local.type" #i="ngModel" required>
+      <option>Maison</option>
+      <option>Appartement</option>
+      <option>Local commercial</option>
+
+    </select>
+  </div>
+  <div class="alert alert-danger" *ngIf="i.invalid && i.touched">
+    id is required
+  </div>
+  <div class="form-group">
+    <label for="adresse">Adresse</label>
+    <input type="text" name="adresse" class="form-control" [(ngModel)]="local.adresse" #t="ngModel"
+           required
+           pattern="[a-zA-Z]+$"
+           minlength="3">
+  </div>
+  <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
+    <div *ngIf="t.errors.required">Adresse is required</div>
+    <div *ngIf="t.errors.minlength">Adresse minlength is 3</div>
+    <div *ngIf="t.errors.pattern">message pattern</div>
+  </div>
+  <div class="form-group">
+    <label for="prix">Prix</label>
+    <input type="number" name="prix" class="form-control" [(ngModel)]="local.prix" #q="ngModel"
+           required>
+  </div>
+  <div class="alert alert-danger" *ngIf="q.invalid && q.touched">
+    prix is required
+  </div>
+  <div class="alert alert-danger" *ngIf="q.value<0">
+    prix >0
+  </div>
+  <div class="form-group">
+    <label for="numero">Numéro de téléphone :</label>
+    <input type="number" name="numero" class="form-control" [(ngModel)]="local.number" #p="ngModel"
+           required
+         >
+  </div>
+  <div class="alert alert-danger" *ngIf="p.invalid && p.touched">
+   numero is required
+  </div>
+
+   <div class="form-group">
+    <label for="type">Etat </label>
+    <select  name="type" class="form-control" [(ngModel)]="local.etat" #k="ngModel" required>
+      <option>Disponnible</option>
+      <option>Non disponnible</option>
+
+    </select>
+  </div>
+  <div class="alert alert-danger" *ngIf="k.invalid && k.touched">
+    etat is required
+  </div>
+
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea name="description" class="form-control" [(ngModel)]="local.description" #d="ngModel"
+           required
+           pattern="^[a-zA-Z]+$"
+           minlength="5"> </textarea>
+  </div>
+  <div class="alert alert-danger" *ngIf="d.invalid && d.touched">
+    <div *ngIf="d.errors.required">description is required</div>
+    <div *ngIf="d.errors.minlength">description minlength is 5</div>
+    <div *ngIf="d.errors.pattern">message pattern</div>
+  </div><!--
+  <div class="form-group">
+    <label for="Image">image</label>
+    <input type="file" name="Image" class="form-control" (change)="handleUpload($event)"  [(ngModel)]="local.url" #c="ngModel"
+
+    required>
+  </div>
+  <img [src]="Logo" >
+
+  <div class="alert alert-danger" *ngIf="c.invalid && c.touched">
+    <div *ngIf="c.errors.required">image is required</div>
+
+  </div>
+-->
+  <button class="btn btn-danger" [disabled]="f.invalid" (click)="ajouter();">save</button>
+</form>
+
+<h1></h1>

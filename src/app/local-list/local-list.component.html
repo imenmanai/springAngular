@@ -1,0 +1,22 @@
+<div class="row">
+
+<div class="col-md-3"  *ngFor="let p of listLocal | async" >
+  <div class="card" style="width: 17rem;" >
+
+   <article class="tm-gallery-item">
+    <figure>
+      <img *ngIf="p.type =='Appartement'" src="../../assets/appartement.jpg" alt="Image" class="card-img-top"  style="margin-right: 0px;margin-left: 0px; width: 270px;height: 150px;"/>
+      <img *ngIf="p.type=='Maison'" src="../../assets/maison.jpg" alt="Image" class="card-img-top"  style="margin-right: 0px;margin-left: 0px;" />
+      <img *ngIf="p.type=='Local commercial'" src="../../assets/local-commercial.jpg" alt="Image" class="card-img-top"   style="margin-right: 0px;margin-left: 0px;"/>
+
+      <figcaption>
+        <h4 class="card-title"  style="margin-left: 50px;">{{p.adresse}}</h4>
+        <p class="tm-gallery-description" style="margin-right: 10px;margin-left: 10px;">{{p.description}}</p>
+        <p class="tm-gallery-price" style="margin-right: 10px;margin-left: 10px;">{{p.prix}} DT/mois</p>
+        <button class="btn btn-danger" style="margin-right: 10px;margin-left: 50px; margin-bottom: 20px;" [routerLink]="['update',p.id]" >Update</button>
+        <button class="btn btn-warning" style="margin-bottom: 20px;"(click)="deleteLocal(p.id)">Supprimer</button>
+      </figcaption>
+    </figure>
+  </article>
+  </div></div>
+  </div>

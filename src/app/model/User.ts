@@ -1,0 +1,13 @@
+import { PrenormalizedTemplateMetadata } from '@angular/compiler';
+
+export class User{
+ id :number;
+ nom:string;
+ prenom:string;
+ email:string;
+ password:string;
+ username:string;
+
+
+
+}

@@ -1,0 +1,15 @@
+
+	<div class="tm-paging-links">
+    <nav>
+      <ul>
+        <li class="tm-paging-item"><a  [routerLink]="['home','Maison']" class="tm-paging-link active">Maison</a></li>
+        <li class="tm-paging-item"><a  [routerLink]="['home','Appartement']" class="tm-paging-link">Appartement</a></li>
+        <li class="tm-paging-item"><a [routerLink]="['home','Local commercial']" class="tm-paging-link">Local commercial</a></li>
+
+      </ul>
+    </nav>
+  </div>
+
+<div class="row" style="margin-left: 10px;padding-left: 10px;">
+  <app-list-rent *ngFor="let p of listLocal | async" [local]="p" ></app-list-rent>
+</div>
